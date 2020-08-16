@@ -17,8 +17,15 @@ describe BirthdayDatabase do
     expect(subject).to respond_to(:print_birthday).with(1).argument
   end
 
-#  it 'print_birthday method returns friend' do
-#    subject.store_birthday("James", "23", "March", "1990")
-#    expect(subject.print_birthday(friend)).to eq "James"
-#  end
+  it 'print_birthday method returns friend' do
+    friend = "James"
+    subject.store_birthday(friend, "23", "March", "1990")
+    expect(subject.print_birthday(friend)).to eq "James"
+  end
+
+  it 'print_birthday method returns birthday database' do
+    subject.store_birthday("James", "23", "March", "1990")
+    expect(subject.print_birthday(database)).to eq "James: 23 March 1990"
+  end
+
 end
